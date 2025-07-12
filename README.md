@@ -437,22 +437,6 @@ func generateWildcardCert(baseDomain string) error {
     return nil
 }
 ```
-
-## Migration from PHP yaac
-
-If migrating from the PHP yaac client:
-
-| PHP yaac | Go acme |
-|----------|---------|
-| `$client->createOrder()` | `client.CreateOrder()` |
-| `$client->authorize()` | `client.Authorize()` |
-| `$authorization->getTxtRecord()` | `auth.GetTxtRecord()` |
-| `$client->selfTest()` | `client.SelfTest()` |
-| `$client->validate()` | `client.Validate()` |
-| `$client->getCertificate()` | `client.GetCertificate()` |
-| `$certificate->getCertificate()` | `cert.GetCertificate()` |
-| `$certificate->getPrivateKey()` | `cert.GetPrivateKey()` |
-
 ## Contributing
 
 Contributions are welcome! Please ensure:
