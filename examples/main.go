@@ -16,7 +16,7 @@ func main() {
 	// Configuration
 	config := &acme.ClientConfig{
 		Username:  "sohelcse1999@gmail.com", // Change to your email
-		Mode:      acme.ModeStaging,         // Use ModeStaging for testing, ModeLive for production
+		Mode:      acme.ModeLive,            // Use ModeStaging for testing, ModeLive for production
 		KeyLength: 4096,
 		BasePath:  "data/le",
 	}
@@ -155,10 +155,10 @@ func main() {
 	fmt.Println("\n💾 Saving certificate files...")
 
 	files := map[string][]byte{
-		"certificate.crt":  []byte(certificate.GetCertificate(false)), // Domain cert only
-		"private.key":      []byte(certificate.GetPrivateKey()),
-		"intermediate.crt": []byte(certificate.GetIntermediate()),
-		"fullchain.crt":    []byte(certificate.GetCertificate(true)), // Full chain
+		"cert/certificate.crt":  []byte(certificate.GetCertificate(false)), // Domain cert only
+		"cert/private.key":      []byte(certificate.GetPrivateKey()),
+		"cert/intermediate.crt": []byte(certificate.GetIntermediate()),
+		"cert/fullchain.crt":    []byte(certificate.GetCertificate(true)), // Full chain
 	}
 
 	for filename, content := range files {
@@ -180,10 +180,10 @@ func main() {
 	fmt.Printf("🔗 Domains covered: %v\n", domains)
 
 	fmt.Println("\n📋 Files created:")
-	fmt.Println("   📄 certificate.crt    - Domain certificate")
-	fmt.Println("   🔐 private.key        - Private key (keep secure!)")
-	fmt.Println("   📄 intermediate.crt   - Intermediate certificate")
-	fmt.Println("   📄 fullchain.crt      - Full certificate chain")
+	fmt.Println("   📄 cert/certificate.crt    - Domain certificate")
+	fmt.Println("   🔐 cert/private.key        - Private key (keep secure!)")
+	fmt.Println("   📄 cert/intermediate.crt   - Intermediate certificate")
+	fmt.Println("   📄 cert/fullchain.crt      - Full certificate chain")
 
 	fmt.Println("\n🚀 Ready to deploy to your Vidinfra platform!")
 	fmt.Println("\n🧹 Cleanup: You can now remove the DNS TXT records.")
